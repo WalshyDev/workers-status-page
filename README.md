@@ -82,7 +82,7 @@ Each service in `wrangler.jsonc` supports:
 		"timeout": 10000, // Optional: timeout in ms (default: 10000)
 		"headers": {
 			// Optional: object with custom headers to send
-			"Authorization": "Bearer $API_TOKEN_SECRET", // You can insert secrets into headers with $<SECERT_NAME>
+			"Authorization": "Bearer $API_TOKEN_SECRET", // You can insert secrets into headers with $<SECRET_NAME>
 		},
 	},
 }
