@@ -1,0 +1,70 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "workers-status-page",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-10-25",
+	"triggers": {
+		"crons": ["* * * * *"]
+	},
+
+	"observability": {
+		"enabled": true
+	},
+
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS",
+		"run_worker_first": ["/api/*"],
+	},
+
+	"vars": {
+		"CONFIG": {
+			"banner": null,
+			// "banner": {
+			// 	"title": "Scheduled Maintenance",
+			// 	"description": "The API will be undergoing scheduled maintainence on the 25th of October 2025 from 1am UTC to 2am UTC. Requests may fail during that time.",
+			// },
+			"services": [
+				{
+					"id": "api",
+					"name": "API",
+					"description": "Core API services and endpoints",
+					"link": "https://api.cloudflare.com/",
+					// "healtcheck": {
+					// 	"url": "https://api.cloudflare.com/client/v4/health",
+					// 	"method": "GET",
+					// 	"timeout": 3000, // 3000ms (3 seconds)
+					// 	"headers": {
+					// 		"Authorization": "Bearer $API_TOKEN", // Will use API_TOKEN secret
+					// 	}
+					// }
+				},
+				{
+					"id": "dashboard",
+					"name": "Dashbaord",
+					"description": "Cloudflare dashboard",
+					"link": "https://dash.cloudflare.com/"
+				},
+				{
+					"id": "workers",
+					"name": "Workers",
+					"description": "Cloudflare workers",
+					"link": "https://workers.cloudflare.com/"
+				},
+				{
+					"id": "pages",
+					"name": "Pages",
+					"description": "Cloudflare pages",
+					"link": "https://pages.cloudflare.com/"
+				}
+			]
+		}
+	},
+
+	"analytics_engine_datasets": [
+		{
+			"binding": "ANALYTICS",
+			"dataset": "workers_status_page"
+		}
+	],
+}
