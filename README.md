@@ -27,17 +27,17 @@ Edit `wrangler.jsonc` to add your services:
 
 ```jsonc
 {
-  "vars": {
-    "CONFIG": {
-      "services": [
-        {
-          "name": "API",
-          "description": "Core API services",
-          "link": "https://api.example.com/"
-        }
-      ]
-    }
-  }
+	"vars": {
+		"CONFIG": {
+			"services": [
+				{
+					"name": "API",
+					"description": "Core API services",
+					"link": "https://api.example.com/",
+				},
+			],
+		},
+	},
 }
 ```
 
@@ -46,6 +46,7 @@ Edit `wrangler.jsonc` to add your services:
 Grab your account ID following the docs here: https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/#copy-your-account-id
 
 Add as a secret:
+
 ```bash
 $ wrangler secret put ACCOUNT_ID
 ```
@@ -53,6 +54,7 @@ $ wrangler secret put ACCOUNT_ID
 Next, create Analytics API Token following the docs here: https://developers.cloudflare.com/analytics/graphql-api/getting-started/authentication/api-token-auth/
 
 Then add as a secret:
+
 ```bash
 $ wrangler secret put API_TOKEN
 ```
@@ -71,17 +73,18 @@ Each service in `wrangler.jsonc` supports:
 
 ```jsonc
 {
-  "name": "Service Name",
-  "description": "Service description",
-  "link": "https://service.example.com/",
-  "healthcheck": {
-    "url": "https://service.example.com/health",   // Optional: custom health check URL
-    "method": "GET",                               // Optional: HTTP method (default: GET)
-    "timeout": 10000,                              // Optional: timeout in ms (default: 10000)
-    "headers": {                                   // Optional: object with custom headers to send 
-      "Authorization": "Bearer $API_TOKEN_SECRET"  // You can insert secrets into headers with $<SECERT_NAME>
-    }
-  }
+	"name": "Service Name",
+	"description": "Service description",
+	"link": "https://service.example.com/",
+	"healthcheck": {
+		"url": "https://service.example.com/health", // Optional: custom health check URL
+		"method": "GET", // Optional: HTTP method (default: GET)
+		"timeout": 10000, // Optional: timeout in ms (default: 10000)
+		"headers": {
+			// Optional: object with custom headers to send
+			"Authorization": "Bearer $API_TOKEN_SECRET", // You can insert secrets into headers with $<SECERT_NAME>
+		},
+	},
 }
 ```
 
@@ -91,14 +94,14 @@ Add a banner for maintenance notifications:
 
 ```jsonc
 {
-  "vars": {
-    "CONFIG": {
-      "banner": {
-        "title": "Scheduled Maintenance",
-        "description": "Services may be unavailable from 1-2 AM UTC"
-      }
-    }
-  }
+	"vars": {
+		"CONFIG": {
+			"banner": {
+				"title": "Scheduled Maintenance",
+				"description": "Services may be unavailable from 1-2 AM UTC",
+			},
+		},
+	},
 }
 ```
 

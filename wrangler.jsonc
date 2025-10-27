@@ -4,11 +4,11 @@
 	"main": "src/index.ts",
 	"compatibility_date": "2025-10-25",
 	"triggers": {
-		"crons": ["* * * * *"]
+		"crons": ["* * * * *"],
 	},
 
 	"observability": {
-		"enabled": true
+		"enabled": true,
 	},
 
 	"assets": {
@@ -43,28 +43,28 @@
 					"id": "dashboard",
 					"name": "Dashbaord",
 					"description": "Cloudflare dashboard",
-					"link": "https://dash.cloudflare.com/"
+					"link": "https://dash.cloudflare.com/",
 				},
 				{
 					"id": "workers",
 					"name": "Workers",
 					"description": "Cloudflare workers",
-					"link": "https://workers.cloudflare.com/"
+					"link": "https://workers.cloudflare.com/",
 				},
 				{
 					"id": "pages",
 					"name": "Pages",
 					"description": "Cloudflare pages",
-					"link": "https://pages.cloudflare.com/"
-				}
-			]
-		}
+					"link": "https://pages.cloudflare.com/",
+				},
+			],
+		},
 	},
 
 	"analytics_engine_datasets": [
 		{
 			"binding": "ANALYTICS",
-			"dataset": "workers_status_page"
-		}
+			"dataset": "workers_status_page",
+		},
 	],
 }
