@@ -32,15 +32,19 @@ api.get("/status", async (ctx) => {
  * GET /api/service/:name/history
  * Returns historical data for a specific service
  */
-api.get("/service/:name/history", async (c) => {
-	const serviceName = c.req.param("name");
+api.get("/service/:name/history", async (ctx) => {
+	const serviceId = ctx.req.param("name");
+
+	if (!ctx.env.CONFIG.services.find((service) => service.id === serviceId)) {
+		return ctx.json({ error: "Service not found" }, 404);
+	}
 
 	try {
-		const history = await getServiceHistory(serviceName);
-		return c.json({ serviceName, history });
+		const history = await getServiceHistory(serviceId);
+		return ctx.json({ serviceId, history });
 	} catch (error) {
-		console.error(`Error fetching history for ${serviceName}:`, error);
-		return c.json({ error: "Failed to fetch service history" }, 500);
+		console.error(`Error fetching history for ${serviceId}:`, error);
+		return ctx.json({ error: "Failed to fetch service history" }, 500);
 	}
 });
 
