@@ -28,4 +28,5 @@ export interface Banner {
 	type: "info" | "warning" | "error";
 	title: string;
 	message: string;
+	expires?: string;
 }

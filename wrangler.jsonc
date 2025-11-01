@@ -23,6 +23,7 @@
 			// "banner": {
 			// 	"title": "Scheduled Maintenance",
 			// 	"description": "The API will be undergoing scheduled maintainence on the 25th of October 2025 from 1am UTC to 2am UTC. Requests may fail during that time.",
+			//	"expires": "2025-11-01T15:40:00Z",
 			// },
 			"services": [
 				{

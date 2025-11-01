@@ -30,6 +30,15 @@ export default function Banner({ banner, onDismiss }: BannerProps) {
 
 	const style = styles[banner.type];
 
+	// If banner expires and it has passed, don't show it
+	if (
+		banner.expires &&
+		!isNaN(Date.parse(banner.expires)) &&
+		new Date(banner.expires) < new Date()
+	) {
+		return null;
+	}
+
 	return (
 		<div
 			className={`${style.bg} ${style.border} ${style.text} border rounded-lg p-4 mb-6`}

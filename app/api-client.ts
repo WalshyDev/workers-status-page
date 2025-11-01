@@ -7,6 +7,7 @@ export interface StatusPageResponse {
 export interface BannerData {
 	title: string;
 	description: string;
+	expires?: string;
 }
 
 export interface ServiceData {

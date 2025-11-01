@@ -161,14 +161,12 @@ export async function getServiceHistory(
     FORMAT JSONEachRow
   `);
 
-	const history = result
-		.map((row) => ({
-			date: row.date,
-			uptime: Math.round(row.uptime * 100) / 100,
-			avgLatency: Math.round(row.avgLatency * 100) / 100,
-			status: getStatusFromUptime(row.uptime),
-		}))
-		.reverse();
+	const history = result.map((row) => ({
+		date: row.date,
+		uptime: Math.round(row.uptime * 100) / 100,
+		avgLatency: Math.round(row.avgLatency * 100) / 100,
+		status: getStatusFromUptime(row.uptime),
+	}));
 
 	// If history is not the full 90 days, pad the data
 	const startDate = new Date();
